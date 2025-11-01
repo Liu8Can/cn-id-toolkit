@@ -22,8 +22,8 @@
 #### 1. 克隆或下载项目
 
 ```bash
-git clone <your-repository-url>
-cd <repository-name>
+git clone https://github.com/Liu8Can/cn-id-toolkit.git
+cd cn-id-toolkit
 ```
 
 #### 2. 准备行政区划代码文件
@@ -56,7 +56,8 @@ cd <repository-name>
     ...
 ]
 ```
-> **提示**: 您可以从国家统计局官网获取最新的行政区划代码，或在 GitHub 等开源社区找到维护良好的 `JSON` 数据源。
+> **提示**: 您可以从 GitHub https://github.com/modood/Administrative-divisions-of-China 获得  `JSON` 数据源。
+> **备份**：https://github.com/Liu8Can/Administrative-divisions-of-China
 
 #### 3. (可选) 准备待分析的号码列表
 
@@ -97,8 +98,8 @@ python id_card_toolkit.py
 
 ### 国家标准
 
--   **GB 11643-1999**: 《公民身份号码》
--   **GB/T 2260**: 《中华人民共和国行政区划代码》
+-   **GB 11643-1999**: 《公民身份号码》[国家标准|GB 11643-1999](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=080D6FBF2BB468F9007657F26D60013E)
+-   **GB/T 2260**: 《中华人民共和国行政区划代码》[国家标准|GB/T 2260-2007](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=C9C488FD717AFDCD52157F41C3302C6D)
 
 ### 号码结构 (18位)
 
