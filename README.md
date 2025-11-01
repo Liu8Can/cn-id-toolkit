@@ -1,9 +1,10 @@
 # ID Card Toolkit - 中国公民身份号码极客工具箱
 
-![Python](https://img.shields.io/badge/python-3.7%2B-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
-![Project](https://img.shields.io/badge/Project-Geek%20Toolkit-lightgrey.svg)
+![GitHub stars](https://img.shields.io/github/stars/Liu8Can/cn-id-toolkit?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Liu8Can/cn-id-toolkit)
+![GitHub last commit](https://img.shields.io/github/last-commit/Liu8Can/cn-id-toolkit)
+![License](https://img.shields.io/github/license/Liu8Can/cn-id-toolkit)
+![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)
 
 一个为技术爱好者、数据分析师和程序员设计的 Python 命令行工具，用于深度解析、验证、猜测和批量分析中国公民身份号码。本项目不仅是一个实用工具，更是一份关于身份证号码编码规则的深度学习笔记。
 
@@ -137,17 +138,21 @@ python id_card_toolkit.py
 -   **目的**: 用于检验前17位号码的录入是否正确，是一种**错误校验机制**。
 -   **算法**: `ISO 7064:1983, MOD 11-2`
 -   **计算公式**:
-    1.  **加权求和**: 将前17位数字 `a_i` 分别乘以其对应的加权因子 `W_i` 并求和 `S`。
-        -   `S = a_1*W_1 + a_2*W_2 + ... + a_17*W_17`
-        -   **加权因子 `W_i` (从第1位到第17位)**:
+1.  **加权求和**: 将前17位数字 `a_i` 分别乘以其对应的加权因子 `W_i` 并求和 `S`。
+-   `S = a_1*W_1 + a_2*W_2 + ... + a_17*W_17`
+-   **加权因子 `W_i` (从第1位到第17位)**:
+
 | 位次 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 |
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | **`W_i`** | 7 | 9 | 10 | 5 | 8 | 4 | 2 | 1 | 6 | 3 | 7 | 9 | 10 | 5 | 8 | 4 | 2 |
 
-    2.  **求余**: 计算 `S` 除以 `11` 的余数 `R`。
-        -   `R = S mod 11`
 
-    3.  **查表**: 根据余数 `R` 查找对应的校验码。
+2.  **求余**: 计算 `S` 除以 `11` 的余数 `R`。
+
+    -   `R = S mod 11`
+
+3.  **查表**: 根据余数 `R` 查找对应的校验码。
+
 | 余数 `R` | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :--: |
 | **校验码** | 1 | 0 | **X** | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 |
